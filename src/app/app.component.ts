@@ -26,8 +26,10 @@ export class AppComponent implements OnInit {
     // );
 
     this.signupForm.statusChanges.subscribe(
-        (status) => console.log(status);
-  )
+        (status) => {
+          console.log(status);
+        }
+    );
     // this.signupForm.setValue({
     //   'userData' : {
     //     'username': 'Max',
