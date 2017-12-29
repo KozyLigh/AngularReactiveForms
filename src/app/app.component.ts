@@ -21,6 +21,14 @@ export class AppComponent implements OnInit {
       'gender': new FormControl('male'),
       'hobbies' : new FormArray([])
     });
+    // this.signupForm.valueChanges.subscribe(
+    //     (value) => console.log(value);
+    // );
+
+    this.signupForm.statusChanges.subscribe(
+        (status) => console.log(status);
+  )
+
   }
   onSubmit() {
     console.log(this.signupForm);
@@ -35,7 +43,7 @@ export class AppComponent implements OnInit {
   forbiddenNames(control: FormControl): {[s: string]: boolean} {
     // here we should not use this.forbiddenUsernames without BINDING it in the validator array this.forbiddenNames.bind(this)
     if (this.forbiddenUsernames.indexOf(control.value) !== -1) {
-      return {'nameIsForbidden': true}
+      return {'nameIsForbidden': true};
     }
     return null;
   }
@@ -44,7 +52,7 @@ export class AppComponent implements OnInit {
     const promise = new Promise<any>((resolve, reject) => {
       setTimeout(() => {
         if (control.value === 'test@test.com') {
-          resolve({'emailIsForbidden': true})
+          resolve({'emailIsForbidden': true});
         } else {
           resolve(null);
         }
