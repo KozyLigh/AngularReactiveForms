@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
         'email': new FormControl(null, [Validators.required, Validators.email], [this.forbiddenEmails])
       }),
       'gender': new FormControl('male'),
-      'hobbies' : new FormArray([])
+      'hobbies': new FormArray([])
     });
     // this.signupForm.valueChanges.subscribe(
     //     (value) => console.log(value);
@@ -28,7 +28,20 @@ export class AppComponent implements OnInit {
     this.signupForm.statusChanges.subscribe(
         (status) => console.log(status);
   )
+    // this.signupForm.setValue({
+    //   'userData' : {
+    //     'username': 'Max',
+    //     'email': 'a@a.com'
+    //   },
+    //   'gender': 'male',
+    //   'hobbies': []
+    // });
 
+    // this.signupForm.patchValue({
+    //   'userData': {
+    //     'username': 'Anka'
+    //   }
+    // });
   }
   onSubmit() {
     console.log(this.signupForm);
